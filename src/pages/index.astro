@@ -1,11 +1,50 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Header from '../components/Header.astro';
+import Reminders from '../components/Reminders.astro';
+import Clock from '../components/Clock.astro';
 ---
 
 <Layout>
-	<Welcome />
+	<Header></Header>
+	<main>
+		<section>
+			<Reminders />
+		</section>
+		<aside>
+			<div>
+				<p class="done">¡Muy bien! Continúa así...</p>
+				<p class="motivation">¡Eres increíble!</p>
+			</div>
+			<Clock/>
+		</aside>
+	</main>
 </Layout>
+
+
+<style>
+main {
+	width: 100%;
+	height: 100%;
+	padding-top: 1rem;
+	display: flex;
+	gap: 2rem;
+	justify-content: center;
+}
+section {
+	width: 50%;
+	height: 100%;
+}
+aside {
+	width: 40%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 4rem;
+}
+
+.done {
+    margin-bottom: 1rem;
+}
+</style>
