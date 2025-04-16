@@ -1,17 +1,3 @@
----
-const {emoji, title, interval} = Astro.props;
----
-<li class="reminder-card">
-    <h2 class="reminder-title">{emoji} {title}</h2>
-    <div class="reminder-settings">
-        <span class="interval-label">Recordarme cada:</span>
-        <input type="number" min="1" class="interval-input" value={interval}/>
-        <span class="interval-unit">minutos</span>
-    </div>
-</li>
-
-
-<style>
 .reminder-card {
     background-color: var(--bg-card);
     border-radius: 1.2rem;
@@ -65,4 +51,3 @@ input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
-</style>

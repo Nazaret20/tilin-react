@@ -21,14 +21,13 @@
 body.light {
 	color: #333333;
 	--secondary-text: #666666;
-	--bg-window: #608f9b;
 	--bg-window: #eaccff;
-	--bg-card: #ccaaf3;
+	--bg-card: #d6b3ff;
 	--bg-input: #fff6c1;
 	--border: #79ceff;
     --moonSun: #fce562;
 	--bg-input-toggle: #76c3f0;
-	--bg: #79b5d1;
+	--bg: #7bd9e0;
 
 }
 

@@ -1,22 +1,23 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
-import Reminders from '../components/Reminders.astro';
-import Clock from '../components/Clock.astro';
+import Reminders from '../components/Reminders';
+import Clock from '../components/Clock';
+
 ---
 
 <Layout>
-	<Header></Header>
+	<Header/>
 	<main>
 		<section>
-			<Reminders />
+			<Reminders client:load />
 		</section>
 		<aside>
 			<div>
 				<p class="done">¡Muy bien! Continúa así...</p>
 				<p class="motivation">¡Eres increíble!</p>
 			</div>
-			<Clock/>
+			<Clock client:load/>
 		</aside>
 	</main>
 </Layout>
