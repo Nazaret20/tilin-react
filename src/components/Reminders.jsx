@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CardReminders from "./CardReminders";
 
 function Reminders() {
@@ -10,9 +10,46 @@ function Reminders() {
 	]);
 
 	const handleIntervalChange = (id, newValue) => {
-		console.log("Intervalo actualizado:", id, newValue); // Aquí también deberías ver algo
-		setReminders((prev) => prev.map((r) => (r.id === id ? { ...r, interval: newValue } : r)));
+		console.log("Intervalo actualizado:", id, newValue);
+		if (newValue <= 0) {
+			alert("El intervalo debe ser mayor que 0 minutos.");
+			return;
+		}
+
+		setReminders((prev) => prev.map((reminder) => (reminder.id === id ? { ...reminder, interval: newValue } : reminder)));
 	};
+
+	useEffect(() => {
+		// Solicitar permisos de notificación solo si no se ha concedido
+		if (Notification.permission !== "granted") {
+			Notification.requestPermission();
+		}
+
+		// Limpiar intervalos al desmontar el componente
+		const intervalIds = [];
+
+		// Establece un intervalo de tiempo para cada recordatorio
+		reminders.forEach((reminder) => {
+			const intervalId = setInterval(() => {
+				// Al cumplirse el tiempo, mostramos una notificación
+				new Notification("¡Es hora de " + reminder.title + "!", {
+					body: reminder.title + " ha llegado el momento",
+				});
+
+				// Reproducir sonido una sola vez
+				const audio = new Audio("/tilin-tilin.mp3"); // Reemplaza con la ruta de tu archivo de sonido
+				audio.play(); // Solo suena una vez
+			}, reminder.interval * 60 * 1000); // Multiplicamos por 60,000 para convertir minutos a milisegundos
+
+			// Guardar el ID del intervalo
+			intervalIds.push(intervalId);
+		});
+
+		// Limpiar los intervalos cuando el componente se desmonte
+		return () => {
+			intervalIds.forEach((intervalId) => clearInterval(intervalId));
+		};
+	}, [reminders]);
 
 	return (
 		<ul>
