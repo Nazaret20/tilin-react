@@ -1,31 +1,42 @@
+import { useState, useEffect } from "react";
 import "../styles/cardReminders.css";
 
 function CardReminders({ id, emoji, title, interval, onIntervalChange }) {
+	const [isHighlighted, setIsHighlighted] = useState(false);
+
+	useEffect(() => {
+		if (interval <= 0) return;
+
+		const timerId = setInterval(() => {
+			const audio = new Audio("tilin-tilin.mp3");
+			audio.play();
+
+			setIsHighlighted(true);
+			
+			setTimeout(() => setIsHighlighted(false), 1000);
+		}, interval * 60 * 1000); // minutos → ms
+
+		return () => clearInterval(timerId);
+	}, [interval]);
+
 	const handleChange = (e) => {
-		// Tomamos el valor como string y eliminamos cualquier cero a la izquierda
-		let newValue = e.target.value.trim().replace(/^0+/, "");
-
-		// Si el valor es vacío o menor a 1, lo setearíamos como 1
-		if (newValue === "" || Number(newValue) <= 0) {
-			newValue = "1"; // Establecemos el valor por defecto a 1 minuto si no es válido
+		const newValue = Number(e.target.value);
+		if (!isNaN(newValue) && newValue >= 1) {
+			onIntervalChange(id, newValue);
+		} else {
+			onIntervalChange(id, 1);
 		}
-
-		// Llamamos a la función en el componente padre para actualizar el intervalo
-		onIntervalChange(id, Number(newValue));
 	};
-
-	const minuteText = interval === 1 ? "minuto" : "minutos";
-
 	return (
-		<li className="reminder-card">
+		<li className={`reminder-card ${isHighlighted ? "highlight" : ""}`}>
 			<h2 className="reminder-title">
 				{emoji} {title}
 			</h2>
 			<div className="reminder-settings">
 				<span className="interval-label">Recordarme cada:</span>
-				<input type="number" className="interval-input" value={interval} onChange={handleChange} />
+				<input type="number" min="1" className="interval-input" value={interval} onChange={handleChange} />
 
-				<span className="interval-unit">{minuteText}</span>
+				<span className="interval-unit">{interval === 1 ? "minuto" : "minutos"}</span>
 			</div>
 		</li>
 	);
