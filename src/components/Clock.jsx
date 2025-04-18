@@ -1,21 +1,21 @@
 import { useState, useEffect } from "react";
+import '../styles/global.css'
 
 function Clock() {
-	const [time, setTime] = useState("Loading time..."); // Initial static value
+	const [time, setTime] = useState("Loading time...");
 
 	useEffect(() => {
-		// Update time only on the client after the component has mounted
+
 		const intervalId = setInterval(() => {
 			setTime(new Date().toLocaleTimeString());
 		}, 1000);
 
-		// Clear the interval on unmount
 		return () => clearInterval(intervalId);
 	}, []);
 
 	return (
 		<div>
-			<p>{time}</p>
+			<p className="clock">{time}</p>
 		</div>
 	);
 }

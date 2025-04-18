@@ -1,9 +1,7 @@
-@import "tailwindcss";
-
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 :root {
@@ -14,8 +12,9 @@
 	--bg-input: #4b93a5;
 	--secondary-text: #bebebe;
 	--border: #bebebe6c;
-    --moonSun: #ffeaa7;
+	--moonSun: #ffeaa7;
 	--bg-input-toggle: #113e63;
+	--motivation: #ffeaa7;
 }
 
 body.light {
@@ -25,10 +24,10 @@ body.light {
 	--bg-card: #d6b3ff;
 	--bg-input: #fff6c1;
 	--border: #79ceff;
-    --moonSun: #fce562;
+	--moonSun: #fce562;
 	--bg-input-toggle: #76c3f0;
 	--bg: #7bd9e0;
-
+	--motivation: #2db2ff;
 }
 
 body {
@@ -45,6 +44,20 @@ body {
 }
 
 html {
-    font-size: 62.5%;
-	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	font-size: 62.5%;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+		"Helvetica Neue", sans-serif;
+}
+
+.motivation {
+	font-size: 1.7rem;
+	font-weight: bold;
+	font-style: italic;
+	color: var(--motivation);
+	transform: 1s ease-in;
+	min-height: 1.5em;
+}
+
+.clock {
+	font-size: 3rem;
 }
