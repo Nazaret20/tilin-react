@@ -1,74 +1,73 @@
 .reminder-card {
-    background-color: var(--bg-card);
-    border-radius: 1.2rem;
-    margin-bottom: 1.6rem;
-    padding: 1.6rem;
-    box-shadow: 0 2px 8px var(--shadow);
-    display: flex;
-    flex-direction: column;
+	background-color: var(--bg-card);
+	border-radius: 1.2rem;
+	margin-bottom: 1.6rem;
+	padding: 1.6rem;
+	display: flex;
+	flex-direction: column;
 }
 
 .reminder-title {
-    font-size: 1.8rem;
-    font-weight: 500;
-    margin: 0 0 12px 0;
-    color: var(--text);
+	font-size: 1.8rem;
+	font-weight: 500;
+	margin: 0 0 12px 0;
+	color: var(--color);
 }
 
 .reminder-settings {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
 
 .interval-label {
-    color: var(--secondary-text);
+	color: var(--secondary-text);
 }
 
 .interval-input {
-    background-color: var(--bg-input);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    color: var(--text);
-    padding: .6rem 1.2rem;
-    width: 7rem;
-    text-align: center;
-    margin-left: .8rem;
+	background-color: var(--bg-input);
+	border: 1px solid var(--border);
+	border-radius: 8px;
+	color: var(--color);
+	padding: 0.6rem 1.2rem;
+	width: 7rem;
+	text-align: center;
+	margin-left: 0.8rem;
 }
 
 .interval-input:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px rgba(207, 245, 255, 0.3);
+	outline: none;
+	box-shadow: 0 0 0 1px var(--border);
 }
 
 .interval-unit {
-    color: var(--secondary-text);
-    margin-left: .8rem
+	color: var(--secondary-text);
+	margin-left: 0.8rem;
 }
 
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+	-webkit-appearance: none;
+	margin: 0;
 }
 
 @keyframes highlight {
-  0% {
-    background-color: #a3d3ff;
-    transform: scale(1);
-  }
-  50% {
-    background-color: #ebebeb; /* Color de resaltado */
-    transform: scale(1.05); /* Un pequeño zoom */
-  }
-  100% {
-    background-color: #a3d3ff;
-    transform: scale(1);
-  }
+	0% {
+		background-color: #a3d3ff;
+		transform: scale(1);
+	}
+	50% {
+		background-color: #ebebeb; /* Color de resaltado */
+		transform: scale(1.05); /* Un pequeño zoom */
+	}
+	100% {
+		background-color: #a3d3ff;
+		transform: scale(1);
+	}
 }
 
 /* Clase que se aplicará cuando el recordatorio haya sonado */
 .highlight {
-  animation: highlight 1s ease-out;
-  animation-iteration-count: 1;
+	animation: highlight 1s ease-out;
+	animation-iteration-count: 1;
 }

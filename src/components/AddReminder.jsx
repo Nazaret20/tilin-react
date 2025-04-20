@@ -1,4 +1,5 @@
 import { useState } from "react";
+import '../styles/addReminder.css'
 
 function AddReminder() {
 	const [title, setTitle] = useState("");
@@ -20,9 +21,14 @@ function AddReminder() {
 
 	return (
 		<form onSubmit={handleSubmit} className="add-reminder-form">
-			<input type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Nuevo recordatorio" required />
-			<input type="number" value={minutes} onChange={(e) => setMinutes(Number(e.target.value))} min="1" />
-			<button type="submit">Añadir</button>
+            <p className="add-reminder-p">✌ Añade un recordatorio nuevo:</p>
+			<input className="add-reminder-input-text" type="text" value={title} onChange={(e) => setTitle(e.target.value)} required />
+
+            <p className="add-reminder-p">⌚ ¿Cada cuántos minutos hará tilín?</p>
+
+            <input className="add-reminder-input-number" type="number" value={minutes} onChange={(e) => setMinutes(Number(e.target.value))} min="1" />
+
+            <button className="add-reminder-button" type="submit">Añadir</button>
 		</form>
 	);
 }

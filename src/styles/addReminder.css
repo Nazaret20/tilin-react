@@ -1,0 +1,62 @@
+.add-reminder-form {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	background-color: var(--bg-card);
+	border-radius: 1.2rem;
+	margin-bottom: 1.6rem;
+	padding: 1.6rem;
+	gap: 2rem;
+}
+
+.add-reminder-input-number {
+	background-color: var(--bg-input);
+	border: 1px solid var(--border);
+	border-radius: 8px;
+	color: var(--text);
+	padding: 0.6rem 1.2rem;
+	width: 7rem;
+	text-align: center;
+	color: var(--color);
+}
+
+.add-reminder-input-text {
+	border: none;
+	height: 3rem;
+	background-color: var(--bg-input-text);
+	border-radius: 5px;
+    padding-left: 1rem;
+    color: var(--color);
+}
+
+.add-reminder-input-text:focus, .add-reminder-input-number:focus {
+	outline: none;
+	box-shadow: 0 0 0 1px var(--border);
+}
+
+.add-reminder-button {
+	width: 50%;
+	margin: 0 auto;
+	height: 3rem;
+	background-color: var(--bg-button);
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	color: var(--color);
+}
+
+.add-reminder-button:hover {
+	background-color: var(--moonSun);
+	color: var(--color-button-hover);
+    background-color: var(--bg-button-hover);
+}
+
+.add-reminder-button:active {
+	background-color: rgb(255, 244, 228);
+}
+
+.add-reminder-p {
+	font-size: 1.6rem;
+	font-weight: 500;
+	color: var(--color);
+}
