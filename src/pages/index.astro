@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Reminders from '../components/Reminders';
 import Clock from '../components/Clock';
 import Motivation from '../components/Motivation';
+import AddReminder from '../components/AddReminder';
 
 ---
 
@@ -14,8 +15,9 @@ import Motivation from '../components/Motivation';
 			<Reminders client:load />
 		</section>
 		<aside>
+			<AddReminder client:load/>
 			<div>
-				<p class="done">¡Muy bien! Continúa así...</p>
+				<p class="done">Programa tus próximos tilíns.</p>
 				<Motivation client:load/>
 			</div>
 			<Clock client:load/>
